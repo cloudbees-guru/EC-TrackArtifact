@@ -1,0 +1,36 @@
+pluginInfo:
+  # This is default sample specification
+  # Feel free to change it
+  # Call pdk showdoc pluginspec to see the list of available fields and their description
+  pluginName: 'EC-TrackArtifact'
+  version: '1.0.0'
+  description: 'Provides a Process Step to track artifacts which are not directly deployed via CloudBees CD'
+  author: 'Jean-Philippe Briend'
+  supportUrl: 'none'
+  category: 'Utilities'
+  shell: 'ec-groovy'
+
+# Plugin configuration description
+configuration:
+  # This is a shell used for checking connection
+  shell: 'ec-groovy'
+  # A script for checking connection will be generated
+  checkConnection: 'false'
+  # A set of fields will be added to process debug level in the configuration
+  hasDebugLevel: false
+  parameters:
+
+procedures:
+-
+  name: 'Track Artifact'
+  description: 'Track the artifact of a Component when CloudBees CD does not deploy the artifact himself. Ex: trigger deployment via Helm or a REST API.'
+  # configuration field will be generated automatically
+  hasConfig: false
+  parameters:
+  -
+    name: groupId
+    documentation: Group ID (optional)
+    required: false
+    type: entry
+    label: Group ID
+  outputParameters:
